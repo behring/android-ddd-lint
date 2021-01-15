@@ -1,5 +1,6 @@
 package behring.android.ddd.checks
 
+import behring.android.ddd.checks.PACKAGE_NAME
 import com.android.tools.lint.checks.infrastructure.LintDetectorTest
 import com.android.tools.lint.detector.api.Detector
 import com.android.tools.lint.detector.api.Issue
@@ -12,8 +13,8 @@ class AndroidLayerDetectorTest : LintDetectorTest() {
         lint().files(
             java(
                 """
-                    package behring.android.ddd.android.viewmodel;
-                    import behring.android.ddd.data.RemoteDataSource;
+                    package $PACKAGE_NAME.android.viewmodel;
+                    import $PACKAGE_NAME.data.RemoteDataSource;
                     public class UserViewModel {
                         private RemoteDataSource remoteDataSource;
                     }
@@ -21,7 +22,7 @@ class AndroidLayerDetectorTest : LintDetectorTest() {
             ).indented(),
             java(
                 """
-                    package behring.android.ddd.data;
+                    package $PACKAGE_NAME.data;
                     public class RemoteDataSource {
                     }
                     """
@@ -31,7 +32,7 @@ class AndroidLayerDetectorTest : LintDetectorTest() {
             .expect(
                 """
                         src/behring/android/ddd/android/viewmodel/UserViewModel.java:2: Error: This code reference data layer: Modification [DDD-DomainLayer]
-                        import behring.android.ddd.data.RemoteDataSource;
+                        import $PACKAGE_NAME.data.RemoteDataSource;
                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                         1 errors, 0 warnings
                     """
