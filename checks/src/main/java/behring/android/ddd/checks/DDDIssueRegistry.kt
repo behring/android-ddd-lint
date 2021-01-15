@@ -7,7 +7,8 @@ import com.android.tools.lint.detector.api.CURRENT_API
 class DDDIssueRegistry : IssueRegistry() {
     override val issues = listOf(
         DomainLayerDetector.ISSUE,
-        DataLayerDetector.ISSUE
+        DataLayerDetector.ISSUE,
+        AndroidLayerDetector.ISSUE
     )
 
     override val api: Int
