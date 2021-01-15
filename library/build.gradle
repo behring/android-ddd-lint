@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion 30
@@ -15,4 +16,24 @@ android {
 /** Package the given lint checks library into this AAR  */
 dependencies {
     lintPublish project(':checks')
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'behring.android.lint'
+                artifactId = 'ddd'
+                version = '1.0'
+            }
+
+            debug(MavenPublication) {
+                from components.debug
+                groupId = 'behring.android.lint'
+                artifactId = 'ddd-debug'
+                version = '1.0'
+            }
+        }
+    }
 }
