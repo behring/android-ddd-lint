@@ -6,7 +6,7 @@ import com.android.tools.lint.detector.api.Issue
 import kotlin.Suppress
 
 @Suppress("UnstableApiUsage")
-class DataLayerDetectorTest : LintDetectorTest() {
+class DataLayerDetectorTest : BaseLintDetectorTest() {
 
     fun testDataLayerDependencies() {
         lint().files(

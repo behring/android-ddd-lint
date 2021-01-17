@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        gradlePluginVersion = '4.1.0-alpha02'
+        gradlePluginVersion = '4.1.1'
         lintVersion = '27.1.0-alpha02'
         kotlinVersion = '1.3.70'
         kotlin_version = '1.4.20'
