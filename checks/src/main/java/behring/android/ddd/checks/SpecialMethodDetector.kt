@@ -11,7 +11,12 @@ class SpecialMethodDetector : Detector(), Detector.UastScanner {
     private val SPECIAL_METHODS = mapOf(
         "exec" to "java.lang.Runtime",
         "start" to "java.lang.ProcessBuilder",
-        "getPathSegments" to "android.net.Uri"
+        "getPathSegments" to "android.net.Uri",
+        "checkCallingOrSelfPermission" to "android.content.Context",
+        "checkCallingOrSelfPermission" to "androidx.core.content.PermissionChecker",
+        "checkCallingOrSelfUriPermission" to "android.content.Context",
+        "enforceCallingOrSelfPermission" to "android.content.Context",
+        "enforceCallingOrSelfUriPermission" to "android.content.Context"
     )
 
     override fun getApplicableMethodNames(): List<String>? {
